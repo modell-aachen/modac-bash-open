@@ -6,3 +6,4 @@ for f in $(find "$modacBashOpenDir/functions" -maxdepth 1 -type f -name '*.sh');
 done
 
 unset modacBashOpenDir
+
