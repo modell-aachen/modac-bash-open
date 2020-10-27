@@ -1,4 +1,9 @@
-modacBashOpenDir=$(dirname "$0")
+if [ -z "$BASH_SOURCE" ]; then
+    BASH_SOURCE=${(%):-%N}
+fi
+
+modacBashOpenDir=$(dirname $(realpath "$BASH_SOURCE"))
+
 export PATH=$PATH:"$modacBashOpenDir/bin"
 
 for f in $(find "$modacBashOpenDir/functions" -maxdepth 1 -type f -name '*.sh'); do
