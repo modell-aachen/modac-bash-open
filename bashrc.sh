@@ -1,4 +1,4 @@
-if [ -z "$BASH_SOURCE" ]; then
+if [ "$SHELL" != "/bin/bash" ]; then
     BASH_SOURCE=${(%):-%N}
 fi
 
