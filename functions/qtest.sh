@@ -8,9 +8,20 @@ qtest() {
 _qtest-completion()
 {
     local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    local options="-c --no-clear --image -i --integration -p --no-pull -v --verbose -w --watch --help -h --filter"
-    COMPREPLY=( $(compgen -W "$options" -- ${cur}) )
+    case "$prev" in
+        --filter )
+            pushd "/home/roos/qwiki-repos/QwikiContrib" > /dev/null
+                COMPREPLY=( $( compgen -d -S '/' -- ${cur} ) )
+                compopt -o nospace
+            popd > /dev/null
+            ;;
+        * )
+            local options="-c --no-clear --image -i --integration -p --no-pull -v --verbose -w --watch --help -h --filter"
+            COMPREPLY=( $(compgen -W "$options" -- ${cur}) )
+            ;;
+    esac
 }
 
 complete -F _qtest-completion qtest
