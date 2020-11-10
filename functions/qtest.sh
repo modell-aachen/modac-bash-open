@@ -12,7 +12,7 @@ _qtest-completion()
 
     case "$prev" in
         --filter )
-            pushd "/home/roos/qwiki-repos/QwikiContrib" > /dev/null
+            pushd "$REPOS_DIRECTORY/QwikiContrib" > /dev/null
                 COMPREPLY=( $( compgen -d -S '/' -- ${cur} ) )
                 compopt -o nospace
             popd > /dev/null
