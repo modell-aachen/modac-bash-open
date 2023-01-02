@@ -18,7 +18,7 @@ _qtest-completion()
             popd > /dev/null
             ;;
         * )
-            local options="-c --no-clear --image -i --integration -p --no-pull -v --verbose -w --watch --help -h --filter"
+            local options="-c --no-clear --image -i --integration -p --no-pull -v --verbose -w --watch --help -h --filter --version"
             COMPREPLY=( $(compgen -W "$options" -- ${cur}) )
             ;;
     esac
